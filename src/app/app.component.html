@@ -1,20 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="row mt-5">
+  <div class="col-4 offset-4">
+    <input class="form-control mx-auto col-9" type="text" value="0" style="width: 72%" placeholder="0"
+           [(ngModel)]="calculatorInputField" (keyup)="keyInput($event)">
+    
+    <div class="row mx-auto d-flex mt-3">
+      <button class="btn col-2 ml-auto mr-2" (click)="pi()">&#960;</button>
+      <button class="btn col-2 mr-2" (click)="e()">e</button>
+      <button class="btn col-2 mr-2" (click)="ln()">ln</button>
+      <button class="btn col-2 mr-auto" (click)="calculatorInputField = ''">C</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '^'">^</button>
+      <button class="btn col-2 mr-2" (click)="square_root()">&#8730;</button>
+      <button class="btn col-2 mr-2" (click)="log10()">log</button>
+      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '/'">/</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '7'">7</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '8'">8</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '9'">9</button>
+      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '*'">X</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '4'">4</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '5'">5</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '6'">6</button>
+      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '-'">-</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '1'">1</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '2'">2</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '3'">3</button>
+      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '+'">+</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="removeOrAddMinusOperand()">+/-</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '0'">0</button>
+      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '.'">.</button>
+      <button class="btn col-2 mr-auto" (click)="calculate()">=</button>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
