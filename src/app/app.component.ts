@@ -13,10 +13,17 @@ export class AppComponent {
   constructor(public calculatorService: CalculatorService) {
   }
   
-  keyInput(event: KeyboardEvent) {
+  insertValue(value: string) {
+    this.calculatorInputField = this.calculatorInputField + value;
+    this.keyInput({key: value});
+  }
+  
+  keyInput(event: any) {
     if (event.key === "Enter") {
       this.calculate();
     } else {
+      console.log("isOperand", this.isMathOperator(event.key))
+      console.log("second",  this.isSecondMathOperator())
       if (this.isMathOperator(event.key) && this.isSecondMathOperator()) {
         this.calculatorInputField = this.calculatorInputField.substring(0, this.calculatorInputField.length -1);
         this.calculate();
@@ -134,8 +141,8 @@ export class AppComponent {
   
   private isSecondMathOperator() {
     let inputWithoutLastChar = this.calculatorInputField.substring(0, this.calculatorInputField.length -1);
-    return inputWithoutLastChar.indexOf("+") >= 1 || inputWithoutLastChar.indexOf("-") >= 1
-      || inputWithoutLastChar.indexOf("*") >= 1 || inputWithoutLastChar.indexOf("/") >= 1 || inputWithoutLastChar.indexOf("^") >= 1
+    return inputWithoutLastChar.match(/[!+]/g) || inputWithoutLastChar.substring(1).match(/[!-]/g)
+      || inputWithoutLastChar.match(/[!*]/g) || inputWithoutLastChar.match(/[!/]/g) || inputWithoutLastChar.match(/[!^]/g);
   }
   
   private lastCharIsMathOperator() {

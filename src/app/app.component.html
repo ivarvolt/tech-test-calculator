@@ -10,33 +10,33 @@
       <button class="btn col-2 mr-auto" (click)="calculatorInputField = ''">C</button>
     </div>
     <div class="row mx-auto d-flex mt-2">
-      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '^'">^</button>
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('^')">^</button>
       <button class="btn col-2 mr-2" (click)="square_root()">&#8730;</button>
       <button class="btn col-2 mr-2" (click)="log10()">log</button>
-      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '/'">/</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('/')">/</button>
     </div>
     <div class="row mx-auto d-flex mt-2">
-      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '7'">7</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '8'">8</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '9'">9</button>
-      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '*'">X</button>
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('7')">7</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('8')">8</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('9')">9</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('*')">X</button>
     </div>
     <div class="row mx-auto d-flex mt-2">
-      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '4'">4</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '5'">5</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '6'">6</button>
-      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '-'">-</button>
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('4')">4</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('5')">5</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('6')">6</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('-')">-</button>
     </div>
     <div class="row mx-auto d-flex mt-2">
-      <button class="btn col-2 ml-auto mr-2" (click)="calculatorInputField = calculatorInputField + '1'">1</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '2'">2</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '3'">3</button>
-      <button class="btn col-2 mr-auto" (click)="calculatorInputField = calculatorInputField + '+'">+</button>
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('1')">1</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('2')">2</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('3')">3</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('+')">+</button>
     </div>
     <div class="row mx-auto d-flex mt-2">
       <button class="btn col-2 ml-auto mr-2" (click)="removeOrAddMinusOperand()">+/-</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '0'">0</button>
-      <button class="btn col-2 mr-2" (click)="calculatorInputField = calculatorInputField + '.'">.</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('0')">0</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('.')">.</button>
       <button class="btn col-2 mr-auto" (click)="calculate()">=</button>
     </div>
   </div>
