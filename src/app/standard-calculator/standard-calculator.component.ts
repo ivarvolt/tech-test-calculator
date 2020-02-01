@@ -101,36 +101,48 @@ export class StandardCalculatorComponent implements OnInit {
     let inputArray = this.calculatorInputField.split("^");
     this.calculatorService.power(Number(inputArray[0]), Number(inputArray[1])).subscribe((response) => {
       this.calculatorInputField = response['result'];
+    }, () => {
+      this.calculatorInputField = Math.pow(Number(inputArray[0]), Number(inputArray[1])) + '';
     })
   }
 
   square_root() {
     this.calculatorService.squareRoot(Number(this.calculatorInputField)).subscribe((response) => {
       this.calculatorInputField = response['result'];
+    }, () => {
+      this.calculatorInputField = Math.sqrt(Number(this.calculatorInputField)) + '';
     })
   }
 
   log10() {
     this.calculatorService.log10(Number(this.calculatorInputField)).subscribe((response) => {
       this.calculatorInputField = response['result'];
+    }, () => {
+      this.calculatorInputField = Math.log10(Number(this.calculatorInputField)) + '';
     })
   }
 
   ln() {
     this.calculatorService.ln(Number(this.calculatorInputField)).subscribe((response) => {
       this.calculatorInputField = response['result'];
+    }, () => {
+      this.calculatorInputField = Math.log(Number(this.calculatorInputField)) + '';
     })
   }
 
   pi() {
     this.calculatorService.pi().subscribe((response) => {
       this.calculatorInputField = response['result'];
+    }, () => {
+      this.calculatorInputField = Math.PI + '';
     })
   }
 
   e() {
     this.calculatorService.e().subscribe((response) => {
       this.calculatorInputField = response['result'];
+    }, () => {
+      this.calculatorInputField = Math.E + '';
     })
   }
 
