@@ -7,7 +7,6 @@ import {StandardCalculatorService} from './standard-calculator.service';
   styleUrls: ['./standard-calculator.component.scss']
 })
 export class StandardCalculatorComponent implements OnInit {
-  title = 'Calculator';
   calculatorInputField: string = '';
 
   constructor(public calculatorService: StandardCalculatorService) {
@@ -25,8 +24,6 @@ export class StandardCalculatorComponent implements OnInit {
     if (event.key === "Enter") {
       this.calculate();
     } else {
-      console.log("isOperand", this.isMathOperator(event.key))
-      console.log("second",  this.isSecondMathOperator())
       if (this.isMathOperator(event.key) && this.isSecondMathOperator()) {
         this.calculatorInputField = this.calculatorInputField.substring(0, this.calculatorInputField.length -1);
         this.calculate();
@@ -106,7 +103,7 @@ export class StandardCalculatorComponent implements OnInit {
     })
   }
 
-  square_root() {
+  squareRoot() {
     this.calculatorService.squareRoot(Number(this.calculatorInputField)).subscribe((response) => {
       this.calculatorInputField = response['result'];
     }, () => {

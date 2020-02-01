@@ -10,11 +10,13 @@
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": ["jest"],
     "lib": [
       "es2017",
       "dom"
