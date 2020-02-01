@@ -1,0 +1,43 @@
+<div class="row mt-5">
+  <div class="col-4 offset-4">
+    <input class="form-control mx-auto col-9" type="text" value="0" style="width: 72%" placeholder="0"
+           [(ngModel)]="calculatorInputField" (keyup)="keyInput($event)">
+
+    <div class="row mx-auto d-flex mt-3">
+      <button class="btn col-2 ml-auto mr-2" (click)="pi()">&#960;</button>
+      <button class="btn col-2 mr-2" (click)="e()">e</button>
+      <button class="btn col-2 mr-2" (click)="ln()">ln</button>
+      <button class="btn col-2 mr-auto" (click)="calculatorInputField = ''">C</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('^')">^</button>
+      <button class="btn col-2 mr-2" (click)="square_root()">&#8730;</button>
+      <button class="btn col-2 mr-2" (click)="log10()">log</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('/')">/</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('7')">7</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('8')">8</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('9')">9</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('*')">X</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('4')">4</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('5')">5</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('6')">6</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('-')">-</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="insertValue('1')">1</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('2')">2</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('3')">3</button>
+      <button class="btn col-2 mr-auto" (click)="insertValue('+')">+</button>
+    </div>
+    <div class="row mx-auto d-flex mt-2">
+      <button class="btn col-2 ml-auto mr-2" (click)="removeOrAddMinusOperand()">+/-</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('0')">0</button>
+      <button class="btn col-2 mr-2" (click)="insertValue('.')">.</button>
+      <button class="btn col-2 mr-auto" (click)="calculate()">=</button>
+    </div>
+  </div>
+</div>

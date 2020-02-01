@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import {CalculatorService} from './services/calculator.service';
+import {StandardCalculatorService} from './standard-calculator/standard-calculator.service';
+import { StandardCalculatorComponent } from './standard-calculator/standard-calculator.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StandardCalculatorComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +18,7 @@ import {CalculatorService} from './services/calculator.service';
     HttpClientModule,
   ],
   providers: [
-    CalculatorService
+    StandardCalculatorService
   ],
   bootstrap: [AppComponent]
 })
