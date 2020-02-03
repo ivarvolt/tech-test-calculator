@@ -18,8 +18,8 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call add API', () => {
-    let operand1 = 1;
-    let operand2 = 1;
+    const operand1 = 1;
+    const operand2 = 1;
     service.add(operand1, operand2).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/add?op1=${operand1}&op2=${operand2}`);
@@ -27,8 +27,8 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call subtract API', () => {
-    let operand1 = 1;
-    let operand2 = 1;
+    const operand1 = 1;
+    const operand2 = 1;
     service.subtract(operand1, operand2).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/subtract?op1=${operand1}&op2=${operand2}`);
@@ -36,8 +36,8 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call multiply API', () => {
-    let operand1 = 1;
-    let operand2 = 1;
+    const operand1 = 1;
+    const operand2 = 1;
     service.multiply(operand1, operand2).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/multiply?op1=${operand1}&op2=${operand2}`);
@@ -45,8 +45,8 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call divide API', () => {
-    let operand1 = 1;
-    let operand2 = 1;
+    const operand1 = 1;
+    const operand2 = 1;
     service.divide(operand1, operand2).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/divide?op1=${operand1}&op2=${operand2}`);
@@ -54,8 +54,8 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call power API', () => {
-    let operand1 = 1;
-    let operand2 = 1;
+    const operand1 = 1;
+    const operand2 = 1;
     service.power(operand1, operand2).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/power?op1=${operand1}&op2=${operand2}`);
@@ -63,7 +63,7 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call square_root API', () => {
-    let operand1 = 1;
+    const operand1 = 1;
     service.squareRoot(operand1).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/square_root?op1=${operand1}`);
@@ -71,7 +71,7 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call log10 API', () => {
-    let operand1 = 1;
+    const operand1 = 1;
     service.log10(operand1).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/log10?op1=${operand1}`);
@@ -79,7 +79,7 @@ describe('StandardCalculatorService', () => {
   });
 
   it('should call ln API', () => {
-    let operand1 = 1;
+    const operand1 = 1;
     service.ln(operand1).subscribe();
 
     const req = httpMock.expectOne(`http://calctest.iesim.biz/ln?op1=${operand1}`);

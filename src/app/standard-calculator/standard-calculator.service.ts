@@ -9,7 +9,7 @@ export class StandardCalculatorService {
   options = {};
 
   constructor(private http: HttpClient) {
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type':  'application/json',
       'Access-Control-Allow-Origin': '*'
     });

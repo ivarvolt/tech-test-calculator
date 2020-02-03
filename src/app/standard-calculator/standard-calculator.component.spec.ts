@@ -63,78 +63,78 @@ describe('CalculatorComponent', () => {
   });
 
   it('should add correctly numbers', async () => {
-    spyOn(service,'add').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'add').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '3+5';
     await component.add();
-    expect(component.calculatorInputField).toEqual('8')
+    expect(component.calculatorInputField).toEqual('8');
   });
 
   it('should subtract correctly', async () => {
-    spyOn(service,'subtract').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'subtract').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '10-5';
     await component.subtract();
-    expect(component.calculatorInputField).toEqual('5')
+    expect(component.calculatorInputField).toEqual('5');
   });
 
   it('should subtract correctly into minus numbers', async () => {
-    spyOn(service,'subtract').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'subtract').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '3-5';
     await component.subtract();
-    expect(component.calculatorInputField).toEqual('-2')
+    expect(component.calculatorInputField).toEqual('-2');
   });
 
   it('should multiply correctly numbers',  async () => {
-    spyOn(service,'multiply').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'multiply').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '2*5';
     await component.multiply();
-    expect(component.calculatorInputField).toEqual('10')
+    expect(component.calculatorInputField).toEqual('10');
   });
 
   it('should divide correctly numbers', async () => {
-    spyOn(service,'divide').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'divide').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '15/3';
     await component.divide();
-    expect(component.calculatorInputField).toEqual('5')
+    expect(component.calculatorInputField).toEqual('5');
   });
 
   it('should power correctly numbers', async () => {
-    spyOn(service,'power').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'power').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '2^2';
     await component.power();
-    expect(component.calculatorInputField).toEqual('4')
+    expect(component.calculatorInputField).toEqual('4');
   });
 
   it('should squareRoot correctly number', async () => {
-    spyOn(service,'squareRoot').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'squareRoot').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '25';
     await component.squareRoot();
-    expect(component.calculatorInputField).toEqual('5')
+    expect(component.calculatorInputField).toEqual('5');
   });
 
   it('should log10 correctly number', async () => {
-    spyOn(service,'log10').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'log10').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '100';
     await component.log10();
-    expect(component.calculatorInputField).toEqual('2')
+    expect(component.calculatorInputField).toEqual('2');
   });
 
   it('should ln correctly numbers',  async () => {
-    spyOn(service,'ln').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'ln').and.returnValue(throwError({status: 404}));
     component.calculatorInputField = '1';
     await component.ln();
-    expect(component.calculatorInputField).toEqual('0')
+    expect(component.calculatorInputField).toEqual('0');
   });
 
   it('should pi correctly', async () => {
-    spyOn(service,'pi').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'pi').and.returnValue(throwError({status: 404}));
     await component.pi();
-    expect(component.calculatorInputField).toEqual('3.141592653589793')
+    expect(component.calculatorInputField).toEqual('3.141592653589793');
   });
 
   it('should e correctly', async () => {
-    spyOn(service,'e').and.returnValue(throwError({status: 404}));
+    spyOn(service, 'e').and.returnValue(throwError({status: 404}));
     await component.e();
-    expect(component.calculatorInputField).toEqual('2.718281828459045')
+    expect(component.calculatorInputField).toEqual('2.718281828459045');
   });
 
 });

@@ -7,7 +7,7 @@ import {StandardCalculatorService} from './standard-calculator.service';
   styleUrls: ['./standard-calculator.component.scss']
 })
 export class StandardCalculatorComponent implements OnInit {
-  calculatorInputField: string = '';
+  calculatorInputField = '';
 
   constructor(public calculatorService: StandardCalculatorService) {
   }
@@ -21,14 +21,16 @@ export class StandardCalculatorComponent implements OnInit {
   }
 
   keyInput(event: any) {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       this.calculate();
     } else {
       if (this.isMathOperator(event.key) && this.isSecondMathOperator()) {
-        this.calculatorInputField = this.calculatorInputField.substring(0, this.calculatorInputField.length -1);
+        this.calculatorInputField = this.calculatorInputField.substring(0, this.calculatorInputField.length - 1);
         this.calculate();
       }
-      if (!this.isNumber(event.key) && !this.isMathOperator(event.key) && event.key !== "Control" && event.key !== "Shift" && event.key !== "Alt" ) {
+      const isNotNumberOrMathOperator = !this.isNumber(event.key) && !this.isMathOperator(event.key);
+      const isNotCtrlShiftAndAlt = event.key !== 'Control' && event.key !== 'Shift' && event.key !== 'Alt';
+      if (isNotNumberOrMathOperator && isNotCtrlShiftAndAlt ) {
         this.calculatorInputField = this.calculatorInputField.slice(0, -1);
       }
     }
@@ -52,55 +54,55 @@ export class StandardCalculatorComponent implements OnInit {
   }
 
   add() {
-    let inputArray = this.calculatorInputField.split("+");
+    const inputArray = this.calculatorInputField.split('+');
     this.calculatorService.add(Number(inputArray[0]), Number(inputArray[1])).subscribe((response) => {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = (Number(inputArray[0]) + Number(inputArray[1])) + '';
-    })
+    });
   }
 
   subtract() {
     let inputArray: string[] = [];
-    if (this.calculatorInputField.charAt(0) === "-") {
-      let secondMinusOperandIndex = this.calculatorInputField.indexOf("-", this.calculatorInputField.indexOf("-") + 1);
+    if (this.calculatorInputField.charAt(0) === '-') {
+      const secondMinusOperandIndex = this.calculatorInputField.indexOf('-', this.calculatorInputField.indexOf('-') + 1);
       inputArray[0] = this.calculatorInputField.substring(0, secondMinusOperandIndex);
       inputArray[1] = this.calculatorInputField.substring(secondMinusOperandIndex + 1);
     } else {
-      inputArray = this.calculatorInputField.split("-");
+      inputArray = this.calculatorInputField.split('-');
     }
     this.calculatorService.subtract(Number(inputArray[0]), Number(inputArray[1])).subscribe((response) => {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = (Number(inputArray[0]) - Number(inputArray[1])) + '';
-    })
+    });
   }
 
   multiply() {
-    let inputArray = this.calculatorInputField.split("*");
+    const inputArray = this.calculatorInputField.split('*');
     this.calculatorService.multiply(Number(inputArray[0]), Number(inputArray[1])).subscribe((response) => {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = (Number(inputArray[0]) * Number(inputArray[1])) + '';
-    })
+    });
   }
 
   divide() {
-    let inputArray = this.calculatorInputField.split("/");
+    const inputArray = this.calculatorInputField.split('/');
     this.calculatorService.divide(Number(inputArray[0]), Number(inputArray[1])).subscribe((response) => {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = (Number(inputArray[0]) / Number(inputArray[1])) + '';
-    })
+    });
   }
 
   power() {
-    let inputArray = this.calculatorInputField.split("^");
+    const inputArray = this.calculatorInputField.split('^');
     this.calculatorService.power(Number(inputArray[0]), Number(inputArray[1])).subscribe((response) => {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = Math.pow(Number(inputArray[0]), Number(inputArray[1])) + '';
-    })
+    });
   }
 
   squareRoot() {
@@ -108,7 +110,7 @@ export class StandardCalculatorComponent implements OnInit {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = Math.sqrt(Number(this.calculatorInputField)) + '';
-    })
+    });
   }
 
   log10() {
@@ -116,7 +118,7 @@ export class StandardCalculatorComponent implements OnInit {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = Math.log10(Number(this.calculatorInputField)) + '';
-    })
+    });
   }
 
   ln() {
@@ -124,7 +126,7 @@ export class StandardCalculatorComponent implements OnInit {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = Math.log(Number(this.calculatorInputField)) + '';
-    })
+    });
   }
 
   pi() {
@@ -132,7 +134,7 @@ export class StandardCalculatorComponent implements OnInit {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = Math.PI + '';
-    })
+    });
   }
 
   e() {
@@ -140,14 +142,14 @@ export class StandardCalculatorComponent implements OnInit {
       this.calculatorInputField = response['result'];
     }, () => {
       this.calculatorInputField = Math.E + '';
-    })
+    });
   }
 
   removeOrAddMinusOperand() {
-    if (this.calculatorInputField.charAt(0) === "-") {
+    if (this.calculatorInputField.charAt(0) === '-') {
       this.calculatorInputField = this.calculatorInputField.substring(1);
     } else {
-      this.calculatorInputField = "-" + this.calculatorInputField
+      this.calculatorInputField = '-' + this.calculatorInputField;
     }
   }
 
@@ -160,13 +162,13 @@ export class StandardCalculatorComponent implements OnInit {
   }
 
   private isSecondMathOperator() {
-    let inputWithoutLastChar = this.calculatorInputField.substring(0, this.calculatorInputField.length -1);
+    const inputWithoutLastChar = this.calculatorInputField.substring(0, this.calculatorInputField.length - 1);
     return inputWithoutLastChar.match(/[!+]/g) || inputWithoutLastChar.substring(1).match(/[!-]/g)
       || inputWithoutLastChar.match(/[!*]/g) || inputWithoutLastChar.match(/[!/]/g) || inputWithoutLastChar.match(/[!^]/g);
   }
 
   private lastCharIsMathOperator() {
-    return this.isMathOperator(this.calculatorInputField.slice(-1))
+    return this.isMathOperator(this.calculatorInputField.slice(-1));
   }
 }
 
